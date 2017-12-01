@@ -1,0 +1,42 @@
+which_agent: 2
+follow_trajectories: True
+
+data_collection:
+    use_threading: True
+    num_rollouts_train: 200
+    num_rollouts_val: 20
+
+dyn_model:
+    num_fc_layers: 1
+    depth_fc_layers: 500
+    batchsize: 512
+    lr: 0.001 
+    nEpoch: 70
+    fraction_use_new: 0
+
+controller:
+    horizon: 5
+    num_control_samples: 5000
+
+aggregation:
+    num_aggregation_iters: 1
+    num_trajectories_for_aggregation: 1
+    rollouts_forTraining: 1
+
+noise:
+    make_aggregated_dataset_noisy: True
+    make_training_dataset_noisy: True
+    noise_actions_during_MPC_rollouts: False
+
+steps:
+    dt_steps: 3 #dt_steps: frameskip normally 50, but changed it to 150
+    steps_per_episode: 1000
+    steps_per_rollout_train: 500
+    steps_per_rollout_val: 200
+
+saving:
+    min_rew_for_saving: -1000
+
+generic:
+    visualize_True: True
+    visualize_False: False

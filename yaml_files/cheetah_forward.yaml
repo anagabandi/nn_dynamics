@@ -1,0 +1,42 @@
+which_agent: 4
+follow_trajectories: False
+
+data_collection:
+    use_threading: True
+    num_rollouts_train: 10
+    num_rollouts_val: 20
+
+dyn_model:
+    num_fc_layers: 1
+    depth_fc_layers: 500
+    batchsize: 512
+    lr: 0.001
+    nEpoch: 60
+    fraction_use_new: 0.9
+
+controller:
+    horizon: 20
+    num_control_samples: 1000
+
+aggregation:
+    num_aggregation_iters: 7
+    num_trajectories_for_aggregation: 10
+    rollouts_forTraining: 9
+
+noise:
+    make_aggregated_dataset_noisy: True
+    make_training_dataset_noisy: True
+    noise_actions_during_MPC_rollouts: True
+
+steps:
+    dt_steps: 1
+    steps_per_episode: 1000
+    steps_per_rollout_train: 1000
+    steps_per_rollout_val: 1000
+
+saving:
+    min_rew_for_saving: 0
+
+generic:
+    visualize_True: True
+    visualize_False: False
