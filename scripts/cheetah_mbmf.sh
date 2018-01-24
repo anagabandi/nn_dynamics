@@ -31,7 +31,7 @@ do
 	echo $run_num
 	save_trpo_run_num=$(( 1 + $iter_num ))
 
-	python main.py --seed=$seed --run_num=$run_num --yaml_file='swimmer_forward'
+	python main.py --seed=$seed --run_num=$run_num --yaml_file='cheetah_forward'
 	python mbmf.py --run_num=$run_num --which_agent=$which_agent --std_on_mlp_policy=$std_on_mlp_policy
 	python trpo_run_mf.py --seed=$seed --save_trpo_run_num=$save_trpo_run_num --which_agent=$which_agent --num_workers_trpo=$num_workers_trpo
 
